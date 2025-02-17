@@ -1,12 +1,13 @@
 name: Use API Token
 
-on: [push]
+on: 
+  push
 
 jobs:
   test-secret:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Secret
-        run: echo "API Token length: ${#API_TOKEN}"
+      - name: Print API Token Length
         env:
           API_TOKEN: ${{ secrets.API_TOKEN }}
+        run: echo "API Token length: ${#API_TOKEN}"
